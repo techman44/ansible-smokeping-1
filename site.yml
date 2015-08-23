@@ -1,0 +1,15 @@
+
+---
+
+- name: smokePing
+  hosts: web
+  sudo: yes
+  vars_files:
+    - 'defaults/main.yml'        
+    
+  tasks:
+    - include: 'tasks/main.yml'            
+
+  handlers:
+    - include: 'handlers/main.yml'
+      

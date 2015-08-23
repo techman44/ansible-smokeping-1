@@ -1,0 +1,28 @@
+---
+# Virtual host configuration for smokeping
+smokeping_listen_address: 0.0.0.0
+smokeping_listen_port: 80
+smokeping_servername: ping.example.com
+
+
+# General configuration for smokeping
+general_owner: Phuong_Tran
+general_contact: phuongtk.ptit@gmail.com
+general_mailhost: smtp.gmail.com
+general_cgiurl: "http://123.30.242.203/cgi-bin/smokeping.cgi"
+
+# Targets
+target_title: Example Corp Network Latency Grapher
+target_remark: >
+  Welcome to the SmokePing website of XYZ Company.
+targets:
+  - name: smokeping target group 1
+    target_group: Local
+    target_menu: Local
+    target_title: Local Network
+    target_hosts:
+      - name: smokeping target host 1
+        target_host_name: LocalMachine
+        target_host_menu: This host
+        target_host_title: Network Graph for localhost
+        target_host_host: localhost
