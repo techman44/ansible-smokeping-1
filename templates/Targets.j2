@@ -8,14 +8,13 @@ remark = {{ target_remark }}
 
 {% for target in targets %}
 + {{ target.target_group }}
-
 menu = {{ target.target_menu }}
 title = {{ target.target_title }}
-probe = {{ target.somkeping_probe }}
+{% for probe in target.smokeping_probe) %}
+probe = {{ target.smokeping_probe }}
 
 {% for host in target.target_hosts %}
 ++ {{ host.target_host_name }}
-
 menu = {{ host.target_host_menu }}
 title = {{ host.target_host_title }}
 host = {{ host.target_host_host }}
