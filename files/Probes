@@ -1,7 +1,69 @@
+
 *** Probes ***
 
 + FPing
-
 binary = /usr/bin/fping
+step = 60
+forks = 5
 blazemode = true
 pings = 20
+
++ EchoPingDNS
+binary = /usr/bin/echoping
+step = 120
+pings = 10
+
++ EchoPingHttp
+binary = /usr/bin/echoping
+step = 180
+pings = 10
+forks = 5
+offset = 30%
+#The following variables can be overridden in each target section
+accept_redirects = yes
+ignore_cache = yes
+ipversion = 4
+port = 80
+priority = 6
+revalidate_data = no
+timeout = 20
+tos = 0xa0
+url = /
+waittime = 1
+
++ EchoPingHttps
+binary = /usr/bin/echoping
+forks = 10
+offset = random
+step = 180
+# The following variables can be overridden in each target section
+accept_redirects = yes
+ignore_cache = yes
+ipversion = 4
+pings = 10
+priority = 6
+port = 443
+revalidate_data = no
+timeout = 20
+tos = 0xa0
+url = /
+waittime = 1
+
++ Curl
+binary = /usr/bin/curl
+forks = 5
+offset = random
+step = 160
+# The following variables can be overridden in each target section
+agent = User-Agent: Lynx/2.8.4rel.1 libwww-FM/2.14 SSL-MM/1.4.1 OpenSSL/0.9.6c
+#expect = 400
+#extraargs = -6 --head --user user:password
+extrare = / /
+follow_redirects = yes
+include_redirects = yes
+insecure_ssl = 1
+interface = eth0
+pings = 10
+ssl2 = 1
+timeout = 20
+urlformat = http://%host%/ # mandatory
